@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Card, Col, Row, Layout, Button, Menu, Breadcrumb, Typography } from 'antd';
+import { Card, Col, Row, Layout, Button, Menu, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import WeatherCard from './WeatherCard';
 
@@ -29,19 +29,19 @@ function App() {
           <div className="site-layout-content">
             <div className="site-card-wrapper">
               <Row gutter={16}>
-                <Col span={4}>
+                <Col span={3}>
                   <WeatherCard></WeatherCard>
                 </Col>
-                <Col span={4}>
+                <Col span={3}>
                   <WeatherCard></WeatherCard>
                 </Col>
-                <Col span={4}>
+                <Col span={3}>
                   <WeatherCard></WeatherCard>
                 </Col>
-                <Col span={4}>
+                <Col span={3}>
                   <WeatherCard></WeatherCard>
                 </Col>
-                <Col span={4}>
+                <Col span={3}>
                   <WeatherCard></WeatherCard>
                 </Col>
               </Row>
