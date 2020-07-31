@@ -23,9 +23,15 @@
   scale: 75%;
 }
 
+.button-container {
+  margin-left: 20px;
+}
+
 .site-layout-content {
-  background: #fff;
   padding: 24px;
   margin-top: 24px;
   height: fit-content;
+  display: flex;
+  justify-content: space-between;
 }
+

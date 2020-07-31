@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Layout, Menu, Breadcrumb, Typography } from 'antd';
+import { Card, Col, Row, Layout, Button, Menu, Breadcrumb, Typography } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+import WeatherCard from './WeatherCard';
 
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
@@ -19,9 +21,32 @@ function App() {
             <Menu.Item key="2">nav 2</Menu.Item>
             <Menu.Item key="3">nav 3</Menu.Item>
           </Menu>
+          <div className="button-container">
+            <Button className="add" shape="circle" icon={<PlusOutlined />} />
+          </div>
         </Header>
         <Content style={{ padding: '0 50px' }}>
-        <div className="site-layout-content">Content</div>
+          <div className="site-layout-content">
+            <div className="site-card-wrapper">
+              <Row gutter={16}>
+                <Col span={4}>
+                  <WeatherCard></WeatherCard>
+                </Col>
+                <Col span={4}>
+                  <WeatherCard></WeatherCard>
+                </Col>
+                <Col span={4}>
+                  <WeatherCard></WeatherCard>
+                </Col>
+                <Col span={4}>
+                  <WeatherCard></WeatherCard>
+                </Col>
+                <Col span={4}>
+                  <WeatherCard></WeatherCard>
+                </Col>
+              </Row>
+            </div>
+          </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>SimpleWeather ©2020 Created by Thomas McGuigan</Footer>
       </Layout>
