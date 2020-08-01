@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Card, Col, Row, Layout, Button, Menu, Typography } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { FacebookOutlined, PlusOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
 import WeatherCard from './WeatherCard';
 
 const { Header, Content, Footer } = Layout;
@@ -12,36 +12,43 @@ function App() {
     <div className="App">
       <Layout className="layout">
         <Header>
-          <div className="logo-container">
-            <img src="./img/weather-icon.svg" alt="logo" />
-            <h1><strong>SimpleWeather</strong></h1>
+          <div className="header-left">
+            <div className="logo-container">
+              <img src="./img/weather-icon.svg" alt="logo" />
+              <h1><strong>SimpleWeather</strong></h1>
+            </div>
+            <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
+              <Menu.Item key="1">nav 1</Menu.Item>
+              <Menu.Item key="2">nav 2</Menu.Item>
+              <Menu.Item key="3">nav 3</Menu.Item>
+            </Menu>
+            <div className="button-container">
+              <Button className="add" shape="circle" icon={<PlusOutlined />} />
+            </div>
           </div>
-          <Menu theme="light" mode="horizontal" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
-          </Menu>
-          <div className="button-container">
-            <Button className="add" shape="circle" icon={<PlusOutlined />} />
+          <div className="header-right">
+            <FacebookOutlined />
+            <InstagramOutlined />
+            <TwitterOutlined />
           </div>
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content">
             <div className="site-card-wrapper">
-              <Row gutter={16}>
-                <Col span={3}>
+              <Row gutter={18}>
+                <Col span={4.5}>
                   <WeatherCard></WeatherCard>
                 </Col>
-                <Col span={3}>
+                <Col span={4.5}>
                   <WeatherCard></WeatherCard>
                 </Col>
-                <Col span={3}>
+                <Col span={4.5}>
                   <WeatherCard></WeatherCard>
                 </Col>
-                <Col span={3}>
+                <Col span={4.5}>
                   <WeatherCard></WeatherCard>
                 </Col>
-                <Col span={3}>
+                <Col span={4.5}>
                   <WeatherCard></WeatherCard>
                 </Col>
               </Row>
