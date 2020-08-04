@@ -39,10 +39,14 @@
 .site-layout-content {
   padding: 10px;
   margin-top: 50px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-header Title {
+  color: #1890ff;
 }
 
 .site-card-wrapper {

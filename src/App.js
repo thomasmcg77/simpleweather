@@ -1,13 +1,43 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
-import { Card, Col, Row, Layout, Button, Menu, Typography } from 'antd';
+import { Card, Col, Row, Layout, Button, Menu, Typography, Input } from 'antd';
 import { FacebookOutlined, PlusOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
 import WeatherCard from './WeatherCard';
 
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
 
+const API_key = '5875ebc8307f0e80738e6efaa0cc494d';
+
+
 function App() {
+
+  const [data, setData] = useState([]);
+  const [country, setCountry] = useState('US');
+  const [state, setState] = useState('Illinois')
+  const [city, setCity] = useState('Chicago');
+
+  useEffect(() => {
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${state}${country}&appid=5875ebc8307f0e80738e6efaa0cc494d`)
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          console.log(data);
+        })
+  }, [city, state, country]);
+
+  function getInputValue() {
+    setCity(document.getElementById("city-value").value);
+    setCountry(document.getElementById("country-value").value);
+    const newState = document.getElementById("country-value").value;
+    if(newState) {
+      setState(newState.concat(','));
+    }
+    else {
+      setState('');
+    }
+  };
+
   return (
     <div className="App">
       <Layout className="layout">
@@ -34,22 +64,28 @@ function App() {
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content">
+            <Title className="location-header">{city}, {country}</Title>
+            <Input.Group compact>
+              <Input id="city-value" style={{ width: '8%' }} placeholder="city" />
+              <Input id="state-value" style={{ width: '8%' }} placeholder="state (if needed)" />
+              <Input.Search id="country-value" style={{ width: '8%' }} placeholder="country" onSearch={getInputValue} />
+            </Input.Group>
             <div className="site-card-wrapper">
               <Row gutter={18}>
                 <Col span={4.5}>
-                  <WeatherCard></WeatherCard>
+                  <WeatherCard day='1' data={data}></WeatherCard>
                 </Col>
                 <Col span={4.5}>
-                  <WeatherCard></WeatherCard>
+                  <WeatherCard day='2' data={data}></WeatherCard>
                 </Col>
                 <Col span={4.5}>
-                  <WeatherCard></WeatherCard>
+                  <WeatherCard day='3' data={data}></WeatherCard>
                 </Col>
                 <Col span={4.5}>
-                  <WeatherCard></WeatherCard>
+                  <WeatherCard day='4' data={data}></WeatherCard>
                 </Col>
                 <Col span={4.5}>
-                  <WeatherCard></WeatherCard>
+                  <WeatherCard day='5' data={data}></WeatherCard>
                 </Col>
               </Row>
             </div>
@@ -59,6 +95,6 @@ function App() {
       </Layout>
     </div>
   );
-}
+};
 
 export default App;
