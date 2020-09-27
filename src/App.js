@@ -12,9 +12,9 @@ const API_key = '5875ebc8307f0e80738e6efaa0cc494d';
 
 function App() {
 
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const [country, setCountry] = useState('US');
-  const [state, setState] = useState('Illinois')
+  const [state, setState] = useState('Illinois');
   const [city, setCity] = useState('Chicago');
 
   useEffect(() => {
@@ -22,7 +22,6 @@ function App() {
         .then((response) => response.json())
         .then((data) => {
           setData(data);
-          console.log(data);
         })
   }, [city, state, country]);
 
@@ -37,6 +36,8 @@ function App() {
       setState('');
     }
   };
+
+  console.log(data);
 
   return (
     <div className="App">
