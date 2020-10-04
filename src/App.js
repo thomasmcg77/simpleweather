@@ -12,13 +12,13 @@ const API_key = '5875ebc8307f0e80738e6efaa0cc494d';
 
 function App() {
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState();
   const [country, setCountry] = useState('US');
   const [state, setState] = useState('Illinois');
   const [city, setCity] = useState('Chicago');
 
   useEffect(() => {
-      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${state}${country}&appid=5875ebc8307f0e80738e6efaa0cc494d`)
+      fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city},${state}${country}&appid=${API_key}`)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
@@ -39,7 +39,7 @@ function App() {
 
   console.log(data);
 
-  return (
+  return !data ? null : (
     <div className="App">
       <Layout className="layout">
         <Header>
@@ -63,8 +63,9 @@ function App() {
             <TwitterOutlined />
           </div>
         </Header>
-        <Content style={{ padding: '0 50px' }}>
-          <div className="site-layout-content">
+        <div className="content-wrapper">
+          <Content style={{ padding: '0 50px' }}>
+            <div className="site-layout-content">
             <Title className="location-header">{city}, {country}</Title>
             <Input.Group compact>
               <Input id="city-value" style={{ width: '8%' }} placeholder="city" />
@@ -73,6 +74,9 @@ function App() {
             </Input.Group>
             <div className="site-card-wrapper">
               <Row gutter={18}>
+                <Col span={4.5}>
+                  <WeatherCard day='0' data={data}></WeatherCard>
+                </Col>
                 <Col span={4.5}>
                   <WeatherCard day='1' data={data}></WeatherCard>
                 </Col>
@@ -85,13 +89,11 @@ function App() {
                 <Col span={4.5}>
                   <WeatherCard day='4' data={data}></WeatherCard>
                 </Col>
-                <Col span={4.5}>
-                  <WeatherCard day='5' data={data}></WeatherCard>
-                </Col>
               </Row>
             </div>
           </div>
-        </Content>
+          </Content>
+        </div>
         <Footer style={{ textAlign: 'center' }}>SimpleWeather ©2020 Created by Thomas McGuigan</Footer>
       </Layout>
     </div>
