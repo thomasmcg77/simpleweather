@@ -1,4 +1,13 @@
 .weather-card {
-    flex: 1;
-    margin-top: 20px;
+  flex: 1;
+  margin-top: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #8f8f8f;
+}
+
+.weather-card:hover {
+  border-color: #1890ff;
+  transition-duration: 0.75s;
 }

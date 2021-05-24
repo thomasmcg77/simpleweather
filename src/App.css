@@ -1,10 +1,12 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
-.App {
+.app-container {
   text-align: center;
+  height: 100vh;
+  background-color: rgb(241, 241, 241);
 }
 
-.App Header {
+.app-container Header {
   display: flex;
   background-color: white;
   justify-content: space-between;
@@ -16,6 +18,21 @@
 
 .header-right {
   display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.social-icon {
+  scale: 200%;
+  color: #1890ff;
+  margin-left: 50px;
+}
+
+.social-icon:hover {
+  color: #1065b4;
+  transition-duration: 0.4s;
 }
 
 .logo-container {
@@ -64,6 +81,10 @@
   align-items: center;
 }
 
-Footer {
-  background-color: blue;
+.input {
+  width: 500px;
+}
+
+.footer {
+  margin-top: 75px;
 }
