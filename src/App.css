@@ -2,8 +2,12 @@
 
 .app-container {
   text-align: center;
-  height: 100vh;
+  height: auto;
   background-color: rgb(241, 241, 241);
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .app-container Header {
@@ -60,6 +64,7 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
+  height: auto;
 }
 
 .content-wrapper {
@@ -74,11 +79,15 @@
 
 .site-card-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 20px;
   height: fit-content;
   width: auto;
-  align-items: center;
+  flex-grow: 1;
+}
+
+.cards {
+  justify-content: center;
 }
 
 .input {
@@ -87,4 +96,26 @@
 
 .footer {
   margin-top: 75px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
 }

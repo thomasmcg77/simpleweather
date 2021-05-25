@@ -16,10 +16,16 @@ const { Title } = Typography;
 const API_key = "5875ebc8307f0e80738e6efaa0cc494d";
 
 function App() {
+  const allData = [];
+
   const [data, setData] = useState();
   const [country, setCountry] = useState("US");
   const [state, setState] = useState("Illinois");
   const [city, setCity] = useState("Chicago");
+
+  const locations = ["chicago"];
+
+  const [tabs, setTabs] = useState(["chicago"]);
 
   // Fetch the data from the API
   useEffect(() => {
@@ -28,6 +34,7 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
+        allData.push(data);
         setData(data);
       });
   }, [city, state, country]);
@@ -44,6 +51,15 @@ function App() {
     }
   }
 
+  function handleNewTab() {
+    const newLocations = locations;
+    newLocations.push("Chicago");
+    setTabs(newLocations);
+    setCountry("US");
+    setState("Illinois");
+    setCity("Chicago");
+  }
+
   console.log(data);
 
   return !data ? null : (
@@ -56,19 +72,33 @@ function App() {
               <strong>SimpleWeather</strong>
             </h1>
           </div>
-          <Menu theme="light" mode="horizontal" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1" className="tab">
-              {city.charAt(0).toUpperCase() + city.substr(1, city.length)}
-            </Menu.Item>
+          <Menu theme="light" mode="horizontal" defaultSelectedKeys={["0"]}>
+            {tabs.map((location, index) => (
+              <Menu.Item key={index} className="tab" title={location}>
+                {location.charAt(0).toUpperCase() +
+                  location.substr(1, city.length)}
+              </Menu.Item>
+            ))}
           </Menu>
           <div className="button-container">
-            <Button className="add" shape="circle" icon={<PlusOutlined />} />
+            <Button
+              className="add"
+              shape="circle"
+              icon={<PlusOutlined />}
+              onClick={handleNewTab}
+            />
           </div>
         </div>
         <div className="header-right">
-          <FacebookOutlined className="social-icon" />
-          <InstagramOutlined className="social-icon" />
-          <TwitterOutlined className="social-icon" />
+          <a href="https://www.facebook.com/">
+            <FacebookOutlined className="social-icon" />
+          </a>
+          <a href="https://www.instagram.com/">
+            <InstagramOutlined className="social-icon" />
+          </a>
+          <a href="https://www.twitter.com/">
+            <TwitterOutlined className="social-icon" />
+          </a>
         </div>
       </Header>
       <div className="content-wrapper">
@@ -96,7 +126,7 @@ function App() {
               />
             </Input.Group>
             <div className="site-card-wrapper">
-              <Row gutter={18}>
+              <Row className="cards" gutter={18}>
                 <Col span={4.5}>
                   <WeatherCard
                     day="0"
@@ -121,8 +151,8 @@ function App() {
           </div>
         </Content>
       </div>
-      <div className="footer" style={{ textAlign: "center" }}>
-        SimpleWeather ©2020 Created by Thomas McGuigan
+      <div className="footer">
+        <p>SimpleWeather ©2020 Created by Thomas McGuigan</p>
       </div>
     </div>
   );
