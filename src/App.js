@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 import WeatherCard from "./WeatherCard";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 const { Title } = Typography;
 
 // Key for weather API
@@ -23,9 +23,11 @@ function App() {
   const [state, setState] = useState("Illinois");
   const [city, setCity] = useState("Chicago");
 
-  const locations = ["chicago"];
+  const [city1, setCity1] = useState(["US", "Chicago", "Illinois"]);
+  const [city2, setCity2] = useState(["UK", "London"]);
+  const [city3, setCity3] = useState(["UAE", "Dubai"]);
 
-  const [tabs, setTabs] = useState(["chicago"]);
+  const [currentTab, setCurrentTab] = useState(0);
 
   // Fetch the data from the API
   useEffect(() => {
@@ -43,21 +45,77 @@ function App() {
   function getInputValue() {
     setCity(document.getElementById("city-value").value);
     setCountry(document.getElementById("country-value").value);
-    const newState = document.getElementById("country-value").value;
+    const newState = document.getElementById("state-value").value;
     if (newState) {
       setState(newState.concat(","));
     } else {
       setState("");
     }
+
+    if (currentTab == 0) {
+      if (newState) {
+        setCity1([
+          setCountry(document.getElementById("country-value").value),
+          document.getElementById("city-value").value,
+          document.getElementById("state-value").value,
+        ]);
+      } else {
+        setCity1([
+          setCountry(document.getElementById("country-value").value),
+          document.getElementById("city-value").value,
+        ]);
+      }
+    } else if (currentTab == 1) {
+      if (newState) {
+        setCity2([
+          setCountry(document.getElementById("country-value").value),
+          document.getElementById("city-value").value,
+          document.getElementById("state-value").value,
+        ]);
+      } else {
+        setCity2([
+          setCountry(document.getElementById("country-value").value),
+          document.getElementById("city-value").value,
+        ]);
+      }
+    } else {
+      if (newState) {
+        setCity3([
+          setCountry(document.getElementById("country-value").value),
+          document.getElementById("city-value").value,
+          document.getElementById("state-value").value,
+        ]);
+      } else {
+        setCity3([
+          setCountry(document.getElementById("country-value").value),
+          document.getElementById("city-value").value,
+        ]);
+      }
+    }
   }
 
-  function handleNewTab() {
-    const newLocations = locations;
-    newLocations.push("Chicago");
-    setTabs(newLocations);
-    setCountry("US");
-    setState("Illinois");
-    setCity("Chicago");
+  function handleSwitchTab(key) {
+    setCurrentTab(key);
+
+    if (key == 0) {
+      setCity(city1[1]);
+      setCountry(city1[0]);
+      if (city1.length > 2) {
+        setState(city1[2]);
+      }
+    } else if (key == 1) {
+      setCity(city2[1]);
+      setCountry(city2[0]);
+      if (city1.length > 2) {
+        setState(city2[2]);
+      }
+    } else {
+      setCity(city3[1]);
+      setCountry(city3[0]);
+      if (city1.length > 2) {
+        setState(city3[2]);
+      }
+    }
   }
 
   console.log(data);
@@ -73,21 +131,31 @@ function App() {
             </h1>
           </div>
           <Menu theme="light" mode="horizontal" defaultSelectedKeys={["0"]}>
-            {tabs.map((location, index) => (
-              <Menu.Item key={index} className="tab" title={location}>
-                {location.charAt(0).toUpperCase() +
-                  location.substr(1, city.length)}
-              </Menu.Item>
-            ))}
+            <Menu.Item
+              key="0"
+              className="tab"
+              onClick={() => handleSwitchTab(0)}
+            >
+              {city1[1].charAt(0).toUpperCase() +
+                city1[1].substr(1, city.length)}
+            </Menu.Item>
+            <Menu.Item
+              key="1"
+              className="tab"
+              onClick={() => handleSwitchTab(1)}
+            >
+              {city2[1].charAt(0).toUpperCase() +
+                city2[1].substr(1, city.length)}
+            </Menu.Item>
+            <Menu.Item
+              key="2"
+              className="tab"
+              onClick={() => handleSwitchTab(2)}
+            >
+              {city3[1].charAt(0).toUpperCase() +
+                city3[1].substr(1, city.length)}
+            </Menu.Item>
           </Menu>
-          <div className="button-container">
-            <Button
-              className="add"
-              shape="circle"
-              icon={<PlusOutlined />}
-              onClick={handleNewTab}
-            />
-          </div>
         </div>
         <div className="header-right">
           <a href="https://www.facebook.com/">
