@@ -2,7 +2,7 @@ import React from "react";
 import "./WeatherCard.css";
 import { Card } from "antd";
 
-function WeatherCard({ day, data, active }) {
+function WeatherCard({ day, data, city }) {
   const date = new Date(data.list[day * 8].dt_txt);
   const days = [
     "Sunday",

@@ -16,11 +16,9 @@ const { Title } = Typography;
 const API_key = "5875ebc8307f0e80738e6efaa0cc494d";
 
 function App() {
-  const allData = [];
-
   const [data, setData] = useState();
   const [country, setCountry] = useState("US");
-  const [state, setState] = useState("Illinois");
+  const [region, setRegion] = useState("Illinois");
   const [city, setCity] = useState("Chicago");
 
   const [city1, setCity1] = useState(["US", "Chicago", "Illinois"]);
@@ -32,65 +30,42 @@ function App() {
   // Fetch the data from the API
   useEffect(() => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city},${state}${country}&appid=${API_key}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city},${region}${country}&appid=${API_key}`
     )
       .then((response) => response.json())
       .then((data) => {
-        allData.push(data);
         setData(data);
       });
-  }, [city, state, country]);
+  }, [city, region, country]);
 
   // Get the input value from the text field
   function getInputValue() {
     setCity(document.getElementById("city-value").value);
     setCountry(document.getElementById("country-value").value);
-    const newState = document.getElementById("state-value").value;
-    if (newState) {
-      setState(newState.concat(","));
+    if (document.getElementById("region-value").value) {
+      setRegion(document.getElementById("region-value").value.concat(","));
     } else {
-      setState("");
+      setRegion("");
     }
 
     if (currentTab == 0) {
-      if (newState) {
-        setCity1([
-          setCountry(document.getElementById("country-value").value),
-          document.getElementById("city-value").value,
-          document.getElementById("state-value").value,
-        ]);
-      } else {
-        setCity1([
-          setCountry(document.getElementById("country-value").value),
-          document.getElementById("city-value").value,
-        ]);
-      }
+      setCity1([
+        document.getElementById("country-value").value,
+        document.getElementById("city-value").value,
+        document.getElementById("region-value").value,
+      ]);
     } else if (currentTab == 1) {
-      if (newState) {
-        setCity2([
-          setCountry(document.getElementById("country-value").value),
-          document.getElementById("city-value").value,
-          document.getElementById("state-value").value,
-        ]);
-      } else {
-        setCity2([
-          setCountry(document.getElementById("country-value").value),
-          document.getElementById("city-value").value,
-        ]);
-      }
+      setCity2([
+        document.getElementById("country-value").value,
+        document.getElementById("city-value").value,
+        document.getElementById("region-value").value,
+      ]);
     } else {
-      if (newState) {
-        setCity3([
-          setCountry(document.getElementById("country-value").value),
-          document.getElementById("city-value").value,
-          document.getElementById("state-value").value,
-        ]);
-      } else {
-        setCity3([
-          setCountry(document.getElementById("country-value").value),
-          document.getElementById("city-value").value,
-        ]);
-      }
+      setCity3([
+        document.getElementById("country-value").value,
+        document.getElementById("city-value").value,
+        document.getElementById("region-value").value,
+      ]);
     }
   }
 
@@ -100,21 +75,15 @@ function App() {
     if (key == 0) {
       setCity(city1[1]);
       setCountry(city1[0]);
-      if (city1.length > 2) {
-        setState(city1[2]);
-      }
+      setRegion(city1[2]);
     } else if (key == 1) {
       setCity(city2[1]);
       setCountry(city2[0]);
-      if (city1.length > 2) {
-        setState(city2[2]);
-      }
+      setRegion(city2[2]);
     } else {
       setCity(city3[1]);
       setCountry(city3[0]);
-      if (city1.length > 2) {
-        setState(city3[2]);
-      }
+      setRegion(city3[2]);
     }
   }
 
@@ -137,7 +106,7 @@ function App() {
               onClick={() => handleSwitchTab(0)}
             >
               {city1[1].charAt(0).toUpperCase() +
-                city1[1].substr(1, city.length)}
+                city1[1].substr(1, city1[1].length)}
             </Menu.Item>
             <Menu.Item
               key="1"
@@ -145,7 +114,7 @@ function App() {
               onClick={() => handleSwitchTab(1)}
             >
               {city2[1].charAt(0).toUpperCase() +
-                city2[1].substr(1, city.length)}
+                city2[1].substr(1, city2[1].length)}
             </Menu.Item>
             <Menu.Item
               key="2"
@@ -153,7 +122,7 @@ function App() {
               onClick={() => handleSwitchTab(2)}
             >
               {city3[1].charAt(0).toUpperCase() +
-                city3[1].substr(1, city.length)}
+                city3[1].substr(1, city3[1].length)}
             </Menu.Item>
           </Menu>
         </div>
@@ -182,7 +151,7 @@ function App() {
                 placeholder="city"
               />
               <Input
-                id="state-value"
+                id="region-value"
                 style={{ width: "33.3%" }}
                 placeholder="state (if needed)"
               />
