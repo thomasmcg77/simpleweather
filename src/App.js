@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { Col, Row, Layout, Button, Menu, Typography, Input } from "antd";
+import { Col, Row, Layout, Menu, Typography, Input } from "antd";
 import {
   FacebookOutlined,
-  PlusOutlined,
   InstagramOutlined,
   TwitterOutlined,
 } from "@ant-design/icons";
-import WeatherCard from "./WeatherCard";
+import WeatherCard from "./components/WeatherCard";
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
