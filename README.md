@@ -2,7 +2,7 @@
 
 SimpleWeather is a weather forecast website built with ReactJS. It displays weather details, such as the high/low and humidity, for the next five days. It allows you to compare the weather of three different locations.
 
-Check it out [here](https://simpleweather-ee9b9.web.app)
+Check it out [here](https://simpleweather-ee9b9.web.app)!
 
 ### Motivation
 ------------------
@@ -19,4 +19,4 @@ Resources:
 **Built with** [Visual Studio Code](https://code.visualstudio.com/)
 
 ### Images/Screenshots
-
+------------------
