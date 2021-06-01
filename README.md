@@ -13,6 +13,7 @@ The purpose of creating this project was to solidify my understanding of React. 
 ### Technology Used
 ------------------
 Resources:
+[React JS](https://reactjs.org/),
 [Ant Design UI Library](https://ant.design/),
 [OpenWeatherMap API](https://openweathermap.org/api),
 [Firebase](https://firebase.google.com/)
