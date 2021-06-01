@@ -7,7 +7,7 @@ Check it out [here](https://simpleweather-ee9b9.web.app)!
 
 ### Motivation
 ------------------
-The purpose of creating this project is to solidify my understanding of React. I wanted to improve my skills in creating clean and responsive user interfaces, as well as getting practice with API's.
+The purpose of creating this project was to solidify my understanding of React. I wanted to improve my skills in creating clean and responsive user interfaces, as well as getting more practice using API's.
 
 
 ### Technology Used
