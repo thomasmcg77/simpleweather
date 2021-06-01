@@ -4,7 +4,7 @@ https://simpleweather-ee9b9.web.app
 
 ## Description
 
-SimpleWeather is a weather website that shows the weekly forcast. It uses the OpenWeatherMap API to get the weather data. Written in Reactjs using the Ant Design UI library.
+SimpleWeather is a weather website that I created in order to solidify my understanding of using API's and creating responsive, clean user interfaces. 
 
 ## Technology Used
 
