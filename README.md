@@ -20,3 +20,6 @@ Resources:
 
 ### Images/Screenshots
 ------------------
+
+![alt text](https://github.com/thomasmcg77/simpleweather/blob/master/screenshots/Screenshot%202021-06-01%20130058.jpg)
+![alt text](https://github.com/thomasmcg77/simpleweather/blob/master/screenshots/Screenshot%202021-06-01%20130203.jpg)
