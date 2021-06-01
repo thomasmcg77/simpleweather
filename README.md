@@ -10,8 +10,8 @@ The purpose of creating this project is to solidify my understanding of React. I
 
 ### Technology Used
 ------------------
-**Built with ** [Visual Studio Code](https://code.visualstudio.com/)
-**Resources Used: **
+**Built with** [Visual Studio Code](https://code.visualstudio.com/)
+**Resources Used**
 [Ant Design UI Library](https://ant.design/)
 [OpenWeatherMap API](https://openweathermap.org/api)
 [React typewriter-effect package](https://www.npmjs.com/package/typewriter-effect)
