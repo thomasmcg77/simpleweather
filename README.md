@@ -1,11 +1,22 @@
-## Link
+# SimpleWeather
 
-https://simpleweather-ee9b9.web.app
+SimpleWeather is a weather forecast website built with ReactJS. It displays weather details, such as the high/low and humidity, for the next five days. It allows you to compare the weather of three different locations.
 
-## Description
+Check it out [here](https://simpleweather-ee9b9.web.app)!
 
-SimpleWeather is a weather website that shows the weekly forcast. It uses the OpenWeatherMap API to get the weather data. Written in Reactjs using the Ant Design UI library.
+### Motivation
+------------------
+The purpose of creating this project is to solidify my understanding of React. I wanted to improve my skills in creating clean and responsive user interfaces, as well as getting practice with API's.
 
-## Resources
+### Technology Used
+------------------
+Resources:
+[Ant Design UI Library](https://ant.design/)
+[OpenWeatherMap API](https://openweathermap.org/api)
+[React typewriter-effect package](https://www.npmjs.com/package/typewriter-effect)
+[Firebase](https://firebase.google.com/)
 
-Ant Design UI Library
+**Built with** [Visual Studio Code](https://code.visualstudio.com/)
+
+### Images/Screenshots
+------------------
