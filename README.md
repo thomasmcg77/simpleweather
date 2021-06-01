@@ -4,9 +4,11 @@ SimpleWeather is a weather forecast website built with ReactJS. It displays weat
 
 Check it out [here](https://simpleweather-ee9b9.web.app)!
 
+
 ### Motivation
 ------------------
 The purpose of creating this project is to solidify my understanding of React. I wanted to improve my skills in creating clean and responsive user interfaces, as well as getting practice with API's.
+
 
 ### Technology Used
 ------------------
@@ -17,6 +19,7 @@ Resources:
 [Firebase](https://firebase.google.com/)
 
 **Built with** [Visual Studio Code](https://code.visualstudio.com/)
+
 
 ### Images/Screenshots
 ------------------
