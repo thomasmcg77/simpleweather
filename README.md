@@ -8,6 +8,7 @@ SimpleWeather is a weather website that I created in order to solidify my unders
 
 ## Technology Used
 
-React JS
-Ant Design UI Library
-OpenWeatherMap API (16 day forecast)
+React JS\n
+Ant Design UI Library\n
+OpenWeatherMap API (16 day forecast)\n
+React typewriter-effect package
